@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import tmdbInstance from "../axios";
+import tmdbInstance, { baseImageURL } from "../axios";
 import requests from "../request";
 import "./Banner.css";
 
@@ -11,6 +11,7 @@ function Banner() {
     setMovie(request.data.results[Math.floor(Math.random() * request.data.results?.length - 1 )]);
     return request;
   }
+
   useEffect(()=> {
     fetchData()
   }, [])
@@ -24,7 +25,7 @@ function Banner() {
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
+        backgroundImage: `url('${baseImageURL}${movie?.backdrop_path}')`,
         backgroundPosition: "center center",
       }}
     >

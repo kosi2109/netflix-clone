@@ -1,7 +1,10 @@
 import axios from "axios";
 
+export const baseURL = 'https://api.themoviedb.org/3';
+export const baseImageURL = 'https://image.tmdb.org/t/p/original';
+
 const tmdbInstance = axios.create({
-    baseURL : 'https://api.themoviedb.org/3'
+    baseURL
 })
 
 export default tmdbInstance;    
